@@ -87,6 +87,8 @@ function dpr(){
   })(window);
 }
 //export {dpr};
-module.exports = {
+module.exports = exports = {
   dpr: dpr
 };
+//module.exports = exports = dpr;
+//export default dpr;

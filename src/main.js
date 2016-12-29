@@ -4,8 +4,8 @@ import styles from './index.scss';         //导入css样式表
 //import './index.css';         //导入css样式表
 //import dpr from "./plugin/dpr";    //不加括号相当于为整个模块起了一个别名，加括号直接引用模块内的方法/对象
 //dpr.dpr();
-import {dpr} from "./plugin/dpr";
-dpr();
+import dpr from "./plugin/dpr";
+dpr.dpr();
 Vue.use(VueRouter);
 var App = Vue.extend({})
 var router = new VueRouter()
