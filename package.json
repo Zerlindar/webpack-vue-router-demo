@@ -4,9 +4,8 @@
   "description": "vue+webapck",
   "main": "index.js",
   "scripts": {
-    "dev": "node build/dev-server.js",
-    "build": "node build/build.js",
-    "start": "webpack-dev-server --inline"
+    "dev": "node build/dev-server.js --inline --port 8024",
+    "start": "webpack-dev-server --inline --port 8023"
   },
   "dependencies": {
     "vue": "^1.0.18",
