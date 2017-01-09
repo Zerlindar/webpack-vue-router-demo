@@ -1,6 +1,6 @@
 <template>
    <ul class = "nav1-list" v-for = "data in datas">
-       <li v-link="{ path: '/admin/state', params: { id: id }}">{{data.title}}</li>
+       <li v-link="{ name: 'state', params: {id: data.id} }">{{data.title}}</li>
    </ul>
 </template>
 

@@ -16,31 +16,36 @@ router.map({
     }
   },
   '/login': {
+    name: "login",
     component: function (resolve) {
       require(['./components/login.vue'], resolve)
     }
   },
   '/admin': {
+    name: "admin",
     component: function (resolve) {
       require(['./components/admin.vue'], resolve)
     },
     subRoutes: {
       'nav1':{
+        name: "nav1",
         component: function (resolve) {
           require(['./components/nav1.vue'], resolve)
         }
       },
       'nav2':{
+        name: "nav2",
         component: function (resolve) {
           require(['./components/nav2.vue'], resolve)
         }
       },
       '/':{
         component: function (resolve) {
-          require(['./components/nav3.vue'], resolve)
+          require(['./components/nav3.vue'], resolve)  
         }
       },
       'state/:id':{
+        name: "state",
         component: function (resolve) {
           require(['./components/state.vue'], resolve)
         }

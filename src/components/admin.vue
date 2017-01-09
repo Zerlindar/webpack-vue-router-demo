@@ -14,7 +14,7 @@
                     <nav class = "nav">
                         <ul class = "list">
                             <li class="list-detail"><a class = "v-link-active" v-link="{ path: '/login'}">返回登录</a></li>
-                            <li class="list-detail"><a v-link="{ path: '/admin/nav1'}">导航1</a></li>
+                            <li class="list-detail"><a v-link="{ name: 'nav1'}">导航1</a></li>
                             <li class="list-detail"><a v-link="{ path: '/admin/nav2'}">导航2</a></li>
                         </ul>
                     </nav>
