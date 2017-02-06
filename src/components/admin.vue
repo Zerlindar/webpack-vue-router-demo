@@ -1,7 +1,7 @@
 <template>
     <div class="main-container">
         <header class="head">
-            <h1>{{ title }}</h1>
+            <h1>vue-demo演示</h1>
         </header>
         <section class = "section">
             <div class="section-inner">
@@ -25,11 +25,8 @@
 </template>
 
 <script type="text/javascript">
+    import store from '../vuex/store' // import创建的 store
     export default {
-        data() {
-            return {
-                title: "webpack vue demo演示"
-            }
-        }
+        store
     }
 </script>

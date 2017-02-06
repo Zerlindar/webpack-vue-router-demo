@@ -26,7 +26,7 @@ module.exports = {
       // 转化ES6的语法
       { test: /\.js$/, loader: 'babel', exclude: /node_modules/ },
       // 编译css并自动添加css前缀
-      { test: /\.css$/, loader:  ExtractTextPlugin.extract('style-loader', 'css-loader!postcss-loader')},
+      { test: /\.css$/, loader:  ExtractTextPlugin.extract('style-loader', 'css-loader?modules!postcss-loader')},
       //.scss 文件想要编译，scss就需要来编译处理
       //install css-loader style-loader sass-loader node-sass --save-dev
       { test: /\.scss$/, loader: ExtractTextPlugin.extract('style', 'css!sass?sourceMap')},
@@ -43,7 +43,7 @@ module.exports = {
   ],
   vue: {
     loaders: {
-      css: 'style!css!autoprefixer',
+      css: 'style!css!autoprefixer!',
     }
   },
   // 转化成es6的语法
