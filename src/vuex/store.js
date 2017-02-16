@@ -14,7 +14,7 @@ const state = {
 }
 console.log("store");
 const mutations = {
-  // mutation 的第一个参数是当前的 state
+  // mutation 的第一个参数是当前的 state,第二个参数是传入的自由参数
   // 你可以在函数里修改 state
   INCREMENT (state, amount) {
     state.count = state.count + amount

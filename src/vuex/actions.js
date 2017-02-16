@@ -6,6 +6,9 @@
 // 我们可以利用 ES6 的解构（destructuring）功能来简化对参数的导入
 export const incrementCounter = function ({ dispatch, state }) {
   console.log("running")
+  //if ((state.count + 1) % 2 === 0) {
+  //  dispatch('INCREMENT')
+  //}
   dispatch('INCREMENT', 1)
 }
 console.log("action")

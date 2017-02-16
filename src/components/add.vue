@@ -1,5 +1,6 @@
 <template>
     <div class = "styles.hello">
+        <h2>vuex使用</h2>
         <button class = "btn" @click='increment'>点击按钮加1</button>
     </div>
 </template>
