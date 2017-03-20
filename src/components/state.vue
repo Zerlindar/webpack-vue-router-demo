@@ -1,6 +1,8 @@
 <template>
     <div class="introduction">
-        state页面
+        <div :model = "title" :class = "{active: isActive}" @click = "fuck(title)">{{title}}</div>
+        <input type="text" :model = "input"/>
+        <div>{{input}}</div>
     </div>
 </template>
 
@@ -9,7 +11,13 @@
         data() {
             return {
                 title: "webpack + vue + vue-router演示demo",
-                detail: "主要显示路由切换功能"
+                detail: "显示路由切换功能",
+                isActive: true
+            }
+        },
+        methods: {
+            fuck(title) {
+                console.log(title);
             }
         },
         ready: function(){
