@@ -8,8 +8,8 @@ import dpr from "./plugin/dpr";
 
 dpr.dpr();
 Vue.use(VueRouter);
-var App    = Vue.extend({})
-var router = new VueRouter()
+var App    = Vue.extend({});
+var router = new VueRouter();
 router.map({
   '/': {
     component: function(resolve) {

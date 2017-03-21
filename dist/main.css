@@ -3,7 +3,9 @@ body, html {
   height: 100%;
   margin: 0;
   padding: 0;
-  font-size: 0.4rem; }
+  font-size: 0.4rem;
+  -webkit-transform: translateY(0);
+          transform: translateY(0); }
 
 a {
   color: black;
@@ -48,6 +50,7 @@ input {
     height: 1.5rem;
     line-height: 1.5rem;
     font-size: 19px;
+    background: -webkit-linear-gradient(top, #303036, #3c3b40);
     background: linear-gradient(180deg, #303036, #3c3b40);
     color: #fff;
     text-align: center; }
@@ -70,9 +73,15 @@ input {
       box-sizing: border-box; }
       .main-container .nav-container nav ul {
         height: 100%;
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
-        justify-content: center;
-        align-items: center; }
+        -webkit-box-pack: center;
+            -ms-flex-pack: center;
+                justify-content: center;
+        -webkit-box-align: center;
+            -ms-flex-align: center;
+                align-items: center; }
       .main-container .nav-container nav li {
         -moz-user-select: none;
         -ms-user-select: none;
@@ -111,7 +120,8 @@ input {
           position: absolute;
           top: 50%;
           left: 50%;
-          transform: translate(-50%, -50%);
+          -webkit-transform: translate(-50%, -50%);
+                  transform: translate(-50%, -50%);
           width: 1rem;
           height: 1rem; }
           .main-container section .section-inner .nav2 .center:before {
@@ -119,7 +129,8 @@ input {
             position: absolute;
             top: 50%;
             left: 50%;
-            transform: translate(-50%, -50%);
+            -webkit-transform: translate(-50%, -50%);
+                    transform: translate(-50%, -50%);
             width: 2.5rem;
             height: 2.5rem;
             line-height: 2rem;

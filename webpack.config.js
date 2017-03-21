@@ -25,25 +25,27 @@ module.exports = {
       { test: /\.vue$/, loader: 'vue' },
       // 转化ES6的语法
       { test: /\.js$/, loader: 'babel', exclude: /node_modules/ },
-      // 编译css并自动添加css前缀
-      { test: /\.css$/, loader:  ExtractTextPlugin.extract('style-loader', 'css-loader?modules!postcss-loader')},
+      // 编译css并自动添加css前缀 ?是参数，！分隔加载的插件
+      { test: /\.css$/, loader:  ExtractTextPlugin.extract('style', 'css!postcss')},
       //.scss 文件想要编译，scss就需要来编译处理
       //install css-loader style-loader sass-loader node-sass --save-dev
-      { test: /\.scss$/, loader: ExtractTextPlugin.extract('style', 'css!sass?sourceMap')},
+      { test: /\.scss$/, loader: ExtractTextPlugin.extract('style', 'css!postcss!sass?sourceMap')},
       // 图片转化，小于8K自动转化为base64的编码
-      { test: /\.(png|jpg|gif)$/, loader: 'url-loader?limit=8192'},
+      { test: /\.(png|jpg|gif)$/, loader: 'url?limit=8192'},
     ]
   },
   // .vue的配置。官网文档里是可以有单独的配置的。
   plugins: [
     new HtmlWebpackPlugin({
+      title: "vue演示demo",
       template: __dirname + "/index_tpl.html"
     }),
     new ExtractTextPlugin("[name].css")
   ],
   vue: {
     loaders: {
-      css: 'style!css!autoprefixer!',
+      //css: ExtractTextPlugin.extract('vue-style-loader', 'css?modules?sourceMap!postcss'),
+      sass: ExtractTextPlugin.extract('vue-style-loader', 'css!postcss!sass?sourceMap'),
     }
   },
   // 转化成es6的语法
@@ -51,15 +53,18 @@ module.exports = {
     presets: ['es2015'],
     plugins: ['transform-runtime']
   },
-  postcss: function() {
-    return [autoprefixer]
+  postcss: function () {
+    return {
+      defaults: [autoprefixer],
+      cleaner: [autoprefixer({browsers: ["ios >= 7", "android >= 4.0"]})]
+    };
   },
   resolve: {
     // require/import时省略的扩展名，如：require('module') 不需要module.js
     extensions: ['', '.js', '.vue'],
     // 别名，可以直接使用别名来代表设定的路径以及其他
     alias: {
-      filter: path.join(__dirname, './src/filters'),
+      scss: path.join(__dirname, './src/scss'),
       components: path.join(__dirname, './src/components')
     }
   },
