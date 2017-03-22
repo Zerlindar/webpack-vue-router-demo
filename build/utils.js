@@ -19,9 +19,15 @@ exports.cssLoaders = function (options) {
         loader = loader + '-loader'
         extraParamChar = '?'
       }
-      return loader + (options.sourceMap ? extraParamChar + 'sourceMap' : '')
+      console.log("==========loader:::", loader);
+      if(loader == "postcss-loader"){
+        console.log("true;;;;;;;;;;")
+        return loader
+      }else{
+        return loader + (options.sourceMap ? extraParamChar + 'sourceMap' : '')
+      }
     }).join('!')
-
+    console.log("ddddddddddddddddddddd: ", ExtractTextPlugin.extract('vue-style-loader', sourceLoader))
     if (options.extract) {
       return ExtractTextPlugin.extract('vue-style-loader', sourceLoader)
     } else {
@@ -35,7 +41,7 @@ exports.cssLoaders = function (options) {
     postcss: generateLoaders(['css']),
     less: generateLoaders(['css', 'less']),
     sass: generateLoaders(['css', 'sass?indentedSyntax']),
-    scss: generateLoaders(['css', 'sass']),
+    scss: generateLoaders(['css', 'sass', 'postcss']),
     stylus: generateLoaders(['css', 'stylus']),
     styl: generateLoaders(['css', 'stylus'])
   }

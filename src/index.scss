@@ -139,7 +139,7 @@ input{
             text-align: center;
             color: red;
             background: #ccc;
-            border-radius: 50%;      
+            border-radius: 50%;
             font-size: 1.3rem;
           }
         }
@@ -186,4 +186,13 @@ input{
       }
     }
   }
+}
+.eeeee{
+  animation: opacity .3s;
+  user-select: none;
+}
+:fullscreen a {
+  display: flex;
+  animation: opacity .3s;
+  user-select: none;
 }
