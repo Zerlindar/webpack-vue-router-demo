@@ -18,6 +18,7 @@ module.exports = {
     },
     assetsPublicPath: '/',
     port: 8023,
-    proxyTable: {}
+    proxyTable: {},
+    cssSourceMap: false,
   }
 }
