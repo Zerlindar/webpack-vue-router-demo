@@ -16,8 +16,8 @@ module.exports = merge(baseWebpackConfig, {
   },
   devtool: config.build.productionSourceMap ? '#source-map' : false,
   output: {
-    path: config.build.assetsRoot,
-    filename: utils.assetsPath('js/[name].[chunkhash].js'),
+    path: config.build.assetsRoot,                             //   root/dist
+    filename: utils.assetsPath('js/[name].[chunkhash].js'),    //   static/js/[name].[chunkhash].js
     chunkFilename: utils.assetsPath('js/[id].[chunkhash].js')
   },
   vue: {
