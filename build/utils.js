@@ -19,15 +19,12 @@ exports.cssLoaders = function (options) {
         loader = loader + '-loader'
         extraParamChar = '?'
       }
-      console.log("==========loader:::", loader);
       if(loader == "postcss-loader"){
-        console.log("true;;;;;;;;;;")
         return loader
       }else{
         return loader + (options.sourceMap ? extraParamChar + 'sourceMap' : '')
       }
     }).join('!')
-    console.log("ddddddddddddddddddddd: ", ExtractTextPlugin.extract('vue-style-loader', sourceLoader))
     if (options.extract) {
       return ExtractTextPlugin.extract('vue-style-loader', sourceLoader)
     } else {
