@@ -1,8 +1,10 @@
 <template>
-   <ul class = "nav1-list" v-for = "data in datas">
-       <li v-link="{ name: 'state', params: {id: data.id} }">{{data.title}}</li>
+   <ul class = "nav1-list" >
+       <li v-for = "data in datas"><router-link :to ="{ name: 'state', params: {id: data.id} }">{{data.title}}</router-link></li>
    </ul>
 </template>
+
+
 
 <script type="text/javascript">
     export default {
