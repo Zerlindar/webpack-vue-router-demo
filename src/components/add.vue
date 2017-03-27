@@ -11,8 +11,11 @@
   import styles from '../scss/add.scss';         //导入css样式表
   import { mapGetters, mapActions } from 'vuex'
   export default {
-    methods: mapActions([
-      'getCount'
-    ]),
+    methods: {
+      ...mapActions([
+        'getCount'
+      ])
+  }
+  ,
   }
 </script>
