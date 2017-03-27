@@ -17,7 +17,7 @@ module.exports = {
       NODE_ENV: '"development"'
     },
     assetsPublicPath: '/',
-    port: 8023,
+    port: 8024,
     proxyTable: {},
     cssSourceMap: false,
   }
