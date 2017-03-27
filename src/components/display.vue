@@ -9,8 +9,7 @@
     export default {
       computed: {
         counterValue() {
-          console.log("getters count； ", this.$store);
-          return this.$store.state.count;
+          return this.$store.getters.getCount;
         }
       }
     }

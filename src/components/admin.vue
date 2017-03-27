@@ -25,8 +25,7 @@
 </template>
 
 <script type="text/javascript">
-    import store from '../vuex/store' // import创建的 store
     export default {
-        store
+
     }
 </script>
