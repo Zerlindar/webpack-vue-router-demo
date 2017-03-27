@@ -5,13 +5,13 @@
 </template>
 
 <script>
-    import {getCount} from '../vuex/getters'
+  import { mapGetters, mapActions } from 'vuex'
     export default {
-        vuex: {
-            getters: {
-                // 注意在这里你需要 `getCount` 函数本身而不是它的执行结果 'getCount()'
-                counterValue: getCount
-            }
+      computed: {
+        counterValue() {
+          console.log("getters count； ", this.$store);
+          return this.$store.state.count;
         }
+      }
     }
 </script>
