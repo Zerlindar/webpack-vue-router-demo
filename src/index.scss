@@ -110,7 +110,11 @@ input{
     box-sizing: border-box;
     .section-inner{
       height: 100%;
+      .introduction{
+        height: 100%;
+      }
       .nav1-list{
+        height: 100%;
         li{
           height: 1.5rem;
           padding-left: 0.3rem;
@@ -192,12 +196,10 @@ input{
     }
   }
 }
-.eeeee{
-  animation: opacity .3s;
-  user-select: none;
+
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .25s
 }
-:fullscreen a {
-  display: flex;
-  animation: opacity .3s;
-  user-select: none;
+.fade-enter, .fade-leave-active {
+  opacity: 0
 }

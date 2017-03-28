@@ -25,7 +25,7 @@ export default [
         },
         children: [
           {
-            path: 'nav1',
+            path: '/nav1',
             name: "nav1",
             component: function(resolve) {
               require(['../components/nav1.vue'], resolve)
@@ -33,17 +33,18 @@ export default [
             children: []
           },
           {
-            path: 'nav2', name: "nav2",
+            path: '/nav2', name: "nav2",
             component: function(resolve) {
               require(['../components/nav2.vue'], resolve)
             }
           },
           {
-            path: '/', component: function(resolve) {
+            path: '/', name: 'introduce',
+            component: function(resolve) {
             require(['../components/introduce.vue'], resolve)
           }
           },{
-            path: 'state/:id', name: "state",
+            path: '/state/:id', name: "state",
             component: function(resolve) {
               require(['../components/state.vue'], resolve)
             }
