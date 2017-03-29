@@ -10,9 +10,10 @@ import store from './store/'
 console.log("store import top: ", store);
 dpr.dpr();
 Vue.use(VueRouter)
-const router = new VueRouter({
+const router  = new VueRouter({
   routes
 })
+
 new Vue({
   router,
   store,

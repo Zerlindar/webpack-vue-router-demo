@@ -1,8 +1,8 @@
 <template>
   <transition name="fade">
     <ul class="nav1-list">
-      <li v-for="data in datas">
-        <router-link :to="{ name: 'state', params: {id: data.id} }">{{data.title}}</router-link>
+      <li v-for="data in datas" @click = "golist(data.id)">
+        <router-link :to="{ name: 'state', params: {id: data.id} }">{{data.title|filter}}</router-link>
       </li>
     </ul>
   </transition>
@@ -33,9 +33,14 @@
         ]
       }
     },
+    filters : {
+      filter: function(value) {
+        return "test child componet filter：" + value;
+      }
+    },
     methods: {
       golist (id) {//方法，定义路由跳转，注意这里必须使用this，不然报错
-        this.$route.router.go({path: "/admin/state", params: {id: id}});
+        console.log("this.router", this.$route);
       }
     }
   }

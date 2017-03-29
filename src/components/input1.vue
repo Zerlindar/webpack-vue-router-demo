@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class = "input-container-wrapper">
         <h2>表单元素绑定</h2>
         <div v-for="(key, value) in checkNames">
             <input type="checkbox"  v-model="checkedNames[key]">
