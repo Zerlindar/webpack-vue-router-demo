@@ -210,3 +210,7 @@ input{
 .add-btn{
   font-size: .4rem;
 }
+input[type = "checkbox"], input[type = "radio"]{
+  width: .3rem;
+  height: .3rem;
+}
