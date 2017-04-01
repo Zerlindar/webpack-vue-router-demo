@@ -1,5 +1,7 @@
 <template>
   <div class="introduction">
+    <loading></loading>
+
     <add :isAdd="true" :isComp="false"></add>
     <div ref="profile">
       <getter :title="title"></getter>
@@ -20,10 +22,10 @@
   </div>
 </template>
 <style lang="scss">
+
   .slide-fade-enter-active {
     transition: all .3s ease;
   }
-
   .slide-fade-leave-active {
     transition: all .8s cubic-bezier(1.0, 0.5, 0.8, 1.0);
   }
@@ -31,7 +33,6 @@
     transform: translateX(10px);
     opacity: 0;
   }
-
   .bounce-enter-active {
     animation: bounce-in .5s;
   }
@@ -65,13 +66,16 @@
   import add from './add.vue'
   import getter from './display.vue'
   import input1 from './input1.vue'
+  import loading from './common/loading.vue'
+
   import {getJson} from '../../util/util'
 
   export default {
     computed: {
       title: function() {
         return this.detail;
-      }
+      },
+
     },
     data() {
       return {
@@ -99,7 +103,9 @@
     components: {
       add: add,
       getter: getter,
-      input1: input1
+      input1: input1,
+      loading: loading,
+
     },
   }
 </script>

@@ -4,6 +4,9 @@
 <template>
   <transition name="fade">
     <div class="introduction">
+      <div class="swiper-container">
+        <swiper :imageSwiper = "image"></swiper>
+      </div>
       <div :model="title" :class="{active: isActive}" @click="fuck(title)">{{title}}</div>
       <input type="text" v-model="input" value="abcdefg"/>
       <div class="input-wrapper">router id: {{input}}</div>
@@ -18,9 +21,15 @@
 
   </transition>
 </template>
-
+<style>
+  .swiper-container{
+    width: 100%;
+    height: 6rem;
+  }
+</style>
 <script type="text/javascript">
   import router from '../router/router'
+  import swiper from './common/swiper.vue'
   export default {
     data() {
       return {
@@ -55,10 +64,16 @@
     computed: {
       input: function() {
         return this.$route.params.id
-      }
+      },
+      image: function(){
+        return ['http://img2.imgtn.bdimg.com/it/u=2297030857,2574563492&fm=214&gp=0.jpg','http://pic6.huitu.com/res/20130116/84481_20130116142820494200_1.jpg', 'http://img02.tooopen.com/images/20140504/sy_60294738471.jpg']
+      },
     },
     ready: function() {
       console.log('deviceid: ');
+    },
+    components: {
+      swiper: swiper,
     }
   }
 </script>
