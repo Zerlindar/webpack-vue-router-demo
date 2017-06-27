@@ -1,9 +1,12 @@
 <template>
-  <transition name="fade">
-    <router-view></router-view>
-  </transition>
+    <transition name="fade">
+        <router-view></router-view>
+    </transition>
 </template>
 
 <script type="text/javascript">
-  export default {}
+    export default {
+        created(){
+        }
+    }
 </script>

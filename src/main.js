@@ -13,12 +13,7 @@ Vue.use(VueRouter)
 const router  = new VueRouter({
   routes
 })
-
-new Vue({
+var a = new Vue({
   router,
   store,
 }).$mount('#app')
-console.log("VUEDDDDD: ", new Vue({
-  router,
-  store,
-}))

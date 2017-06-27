@@ -7,9 +7,12 @@
 
 <script>
   import { mapGetters, mapActions } from 'vuex'
+  import bus from "../bus"
     export default {
       methods: {
         getEvent(e){
+          bus.$emit("edit", "hhhhhhhhhhhhhhhhhhhhh")
+          console.log("bus" , bus);
           console.log("event" , e);
         }
       },

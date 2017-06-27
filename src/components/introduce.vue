@@ -1,5 +1,6 @@
 <template>
   <div class="introduction">
+    <div>{{detail}}</div>
     <loading></loading>
 
     <add :isAdd="true" :isComp="false"></add>
@@ -14,7 +15,7 @@
     <transition name="slide-fade">
       <div v-show="isShow">
         <input1>
-          <div slot="header"><h2>表单元素绑定</h2>
+          <div slot="header" @click = "foo"><h2>表单元素绑定{{obj}}</h2>
           </div>
         </input1>
       </div>
@@ -67,22 +68,47 @@
   import getter from './display.vue'
   import input1 from './input1.vue'
   import loading from './common/loading.vue'
-
+  import {test} from "./mixin"
   import {getJson} from '../../util/util'
-
+  import bus from "../bus"
+  console.log("test", test)
   export default {
+    created: function(){
+      var self = this;
+      bus.$on("edit", function(e){
+        self.detail = e;
+      })
+      console.log("bus: ", bus);
+      this.$on("eee", function(){
+        console.log("eeeeeeeeeeeeeeee:::::::", this.$options)
+      })
+      this.$nextTick(function(){
+        setTimeout(function(){
+          console.log("11111111111111111111111111")
+        }, 1000)
+      })
+      this.$set(this.obj, "a", 3)
+      this.$nextTick(function(){
+        console.log("2222222222222222222222222222222222")
+      })
+//      this.$off();
+      console.log("thissssssssssssssssssssss: ", this);
+    },
+    mixins: [test],
     computed: {
       title: function() {
+        console.log(test);
+        console.log("this: ", this);
         return this.detail;
       },
-
     },
     data() {
       return {
         title: "prop测试：已输出",
         detail: "computed属性",
         isShow: true,
-        currentView: "add"
+        currentView: "add",
+        obj: {},
       }
     },
     methods: {
@@ -96,8 +122,11 @@
         })
       },
       hit(){
+        var a = this.isShow;
         console.log("ref: ", this.$refs.profile.clientHeight)
+        this.obj.a = 333;
         this.isShow = !this.isShow;
+        this.$emit("eee");
       }
     },
     components: {
