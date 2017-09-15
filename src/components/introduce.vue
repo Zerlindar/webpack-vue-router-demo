@@ -1,23 +1,34 @@
 <template>
   <div class="introduction">
     <div>{{detail}}</div>
-    <loading></loading>
+    <!--<loading></loading>-->
 
-    <add :isAdd="true" :isComp="false"></add>
-    <div ref="profile">
-      <getter :title="title"></getter>
-    </div>
-    <component v-bind:is="currentView" :isAdd="false" :isComp="true">
-      <!-- 组件在 vm.currentview 变化时改变！ -->
+    <!--<add :isAdd="true" :isComp="false"></add>-->
+    <component :isAdd="true" :isComp="false" v-bind:is="currentView">
     </component>
+    <div ref="profile">
+      <getter :title="title" ref="p"></getter>
+    </div>
+
+    <div>动态配置v-model</div>
+    <currency-input ></currency-input>
+
+    <div class="parent">
+        <currency-input  v-model="price">
+          <template scope="props">
+            <span>hello from parent</span>
+            <span>{{ props.text }}</span>
+          </template>
+        </currency-input>
+    </div>
     <div ref="shopheader" @click="hit">切换显示input</div>
 
     <transition name="slide-fade">
       <div v-show="isShow">
-        <input1>
+        <input-wrapper>
           <div slot="header" @click = "foo"><h2>表单元素绑定{{obj}}</h2>
           </div>
-        </input1>
+        </input-wrapper>
       </div>
     </transition>
   </div>
@@ -67,51 +78,44 @@
   import add from './add.vue'
   import getter from './display.vue'
   import input1 from './input1.vue'
+  import cuInput from './cuInput.vue'
   import loading from './common/loading.vue'
   import {test} from "./mixin"
   import {getJson} from '../../util/util'
   import bus from "../bus"
-  console.log("test", test)
   export default {
     created: function(){
       var self = this;
       bus.$on("edit", function(e){
         self.detail = e;
       })
-      console.log("bus: ", bus);
-      this.$on("eee", function(){
-        console.log("eeeeeeeeeeeeeeee:::::::", this.$options)
-      })
       this.$nextTick(function(){
-        setTimeout(function(){
-          console.log("11111111111111111111111111")
-        }, 1000)
       })
       this.$set(this.obj, "a", 3)
+
       this.$nextTick(function(){
-        console.log("2222222222222222222222222222222222")
       })
-//      this.$off();
-      console.log("thissssssssssssssssssssss: ", this);
     },
     mixins: [test],
     computed: {
       title: function() {
-        console.log(test);
-        console.log("this: ", this);
         return this.detail;
       },
     },
     data() {
       return {
+        currentView: add,
         title: "prop测试：已输出",
-        detail: "computed属性",
+        detail: "",
         isShow: true,
-        currentView: "add",
         obj: {},
+        price: "11111",
       }
     },
     methods: {
+      conflicting(){
+        console.log("from self")
+      },
       getJSON(){
         let data = {
           shopId: 1,
@@ -122,19 +126,20 @@
         })
       },
       hit(){
+        this.conflicting();
         var a = this.isShow;
-        console.log("ref: ", this.$refs.profile.clientHeight)
+        console.log("ref: ", this.$refs.profile)
         this.obj.a = 333;
         this.isShow = !this.isShow;
         this.$emit("eee");
+        console.log("ref: ", this.$refs.p);
       }
     },
     components: {
-      add: add,
       getter: getter,
-      input1: input1,
+      "input-wrapper": input1,
       loading: loading,
-
+      "currency-input": cuInput,
     },
   }
 </script>
