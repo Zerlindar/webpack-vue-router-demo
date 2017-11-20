@@ -13,9 +13,9 @@
                 <div class="nav-container">
                     <nav class = "nav">
                         <ul class = "list">
-                            <li class="list-detail"><a class = "v-link-active" v-link="{ path: '/login'}">返回登录</a></li>
-                            <li class="list-detail"><a v-link="{ name: 'nav1'}">导航1</a></li>
-                            <li class="list-detail"><a v-link="{ path: '/admin/nav2'}">导航2</a></li>
+                            <router-link :to = "{ path: '/login'}" class="list-detail">返回登录</router-link>
+                            <router-link :to = "{ name: 'nav1'}" class="list-detail">导航1</router-link>
+                            <router-link :to = "{ name: 'nav2'}" class="list-detail">导航2</router-link>
                         </ul>
                     </nav>
                 </div>
@@ -25,8 +25,7 @@
 </template>
 
 <script type="text/javascript">
-    import store from '../vuex/store' // import创建的 store
     export default {
-        store
+
     }
 </script>

@@ -1,7 +1,13 @@
 <template>
+    <transition name="fade">
         <router-view></router-view>
+    </transition>
 </template>
 
 <script type="text/javascript">
-    export default {}
+    export default {
+        created(){
+            console.log("vue: ", this);
+        }
+    }
 </script>

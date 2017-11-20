@@ -9,7 +9,7 @@ module.exports = {
     index: path.resolve(__dirname, '../dist/index.html'),
     assetsRoot: path.resolve(__dirname, '../dist'),
     assetsSubDirectory: 'static',
-    assetsPublicPath: 'http://www.ilovecc.ren/dist/',
+    assetsPublicPath: './',
     productionSourceMap: true
   },
   dev: {
@@ -17,7 +17,7 @@ module.exports = {
       NODE_ENV: '"development"'
     },
     assetsPublicPath: '/',
-    port: 8023,
+    port: 8024,
     proxyTable: {},
     cssSourceMap: false,
   }

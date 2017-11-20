@@ -1,17 +1,33 @@
 <template>
     <div>
-        <h3>state的数值为： {{counterValue}}</h3>
+      <p>{{title}}</p>
+        <h3 class = "c" id = "i" v-model = "counterValue" :value = "counterValue" @click = "getEvent($event)">state的数值为： {{counterValue}}</h3>
     </div>
 </template>
 
 <script>
-    import {getCount} from '../vuex/getters'
+  import { mapGetters, mapActions } from 'vuex'
+  import bus from "../bus"
     export default {
-        vuex: {
-            getters: {
-                // 注意在这里你需要 `getCount` 函数本身而不是它的执行结果 'getCount()'
-                counterValue: getCount
-            }
+      methods: {
+        getEvent(e){
+          bus.$emit("edit", "hhhhhhhhhhhhhhhhhhhhh")
+          console.log("bus" , bus);
+          console.log("event" , e);
         }
+      },
+      computed: {
+        counterValue() {
+          return this.$store.getters.getCount;
+        }
+      },
+//      props: ['title'],
+      props: {
+//        title: String,
+        title: {
+          type: String,
+          required: true
+        }
+      },
     }
 </script>
